@@ -1,4 +1,4 @@
-import { useEffect, useState, type ChangeEvent, type FormEvent } from 'react'
+import { useState, type ChangeEvent, type FormEvent } from 'react'
 import 'remixicon/fonts/remixicon.css'
 import axios from 'axios'
 import useSWR, { mutate } from 'swr'
@@ -12,7 +12,7 @@ const fetcher = async (url: string) => {
   }
 }
 const App = () => {
-  const { data, error, isLoading } = useSWR('/product', fetcher, { refreshInterval: 10000 })
+  const { data, isLoading } = useSWR('/product', fetcher, { refreshInterval: 10000 })
   const [form, setForm] = useState({
     title: '',
     price: '',
